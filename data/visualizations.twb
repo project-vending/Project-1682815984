@@ -1,0 +1,12 @@
+ python
+import os
+
+# Define the directory where the file should be created
+dir_path = os.path.join(os.getcwd(), 'data')
+
+# Define the filename
+filename = 'visualizations.twb'
+
+# Create the file in the specified directory
+file_path = os.path.join(dir_path, filename)
+open(file_path, 'a').close()
