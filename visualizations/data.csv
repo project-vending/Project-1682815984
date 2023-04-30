@@ -1,0 +1,21 @@
+python
+import os
+import csv
+
+# Define the directory and file path
+DIRECTORY = "visualizations"
+FILE_PATH = os.path.join(DIRECTORY, "data.csv")
+
+# Define your data and write to CSV file
+data = [
+    ["Date", "Sales"],
+    ["2022-01-01", 1000],
+    ["2022-01-02", 1200],
+    ["2022-01-03", 1500],
+    ["2022-01-04", 900],
+    ["2022-01-05", 1100],
+]
+with open(FILE_PATH, mode="w", newline="") as f:
+    writer = csv.writer(f)
+    for row in data:
+        writer.writerow(row)
