@@ -1,0 +1,27 @@
+python
+import os
+import csv
+
+# Define the path to the data directory
+data_dir = os.path.join(os.getcwd(), 'data')
+
+# Define the headers for the CSV file
+headers = ['column_1', 'column_2', 'column_3']
+
+# Define the data rows for the CSV file
+data_rows = [
+    [1, 'value_1', 10.0],
+    [2, 'value_2', 20.0],
+    [3, 'value_3', 30.0]
+]
+
+# Define the path to the data.csv file
+data_file_path = os.path.join(data_dir, 'data.csv')
+
+# Create the CSV file and write the headers and data rows
+with open(data_file_path, 'w', newline='') as csvfile:
+    csvwriter = csv.writer(csvfile)
+    csvwriter.writerow(headers)
+    csvwriter.writerows(data_rows)
+
+print(f"Created CSV file {data_file_path}")
