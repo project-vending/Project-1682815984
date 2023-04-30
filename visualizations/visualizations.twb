@@ -1,0 +1,34 @@
+python
+import xml.etree.ElementTree as ET
+import os
+
+# Define the directory path for the workbook to be saved in
+DIR_PATH = os.path.join(os.getcwd(), 'visualizations')
+
+# Create the Tableau workbook XML structure
+twb = ET.Element('workbook')
+twb.set('xmlns', 'http://www.tableausoftware.com/xml/xmlns/tableau')
+twb.set('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
+twb.set('xsi:schemaLocation', 'http://www.tableausoftware.com/xml/xmlns/tableau http://www.tableausoftware.com/xml/xmlns/tableau http://www.w3.org/2001/XMLSchema-instance')
+
+# Add a datasource element to the workbook
+datasource = ET.SubElement(twb, 'datasources')
+datasource.set('inline', 'true')
+
+# Add a worksheet to the workbook
+worksheet = ET.SubElement(twb, 'worksheets')
+worksheet.set('xmlns', 'http://www.tableausoftware.com/xml/worksheet')
+worksheet.set('name', 'My Worksheet')
+
+# Add a view to the worksheet
+view = ET.SubElement(worksheet, 'view')
+
+# Add a container to the view
+container = ET.SubElement(view, 'container')
+container.set('class', 'layout-container')
+
+# Save the workbook as a .twb file
+tree = ET.ElementTree(twb)
+file_path = os.path.join(DIR_PATH, 'visualizations.twb')
+with open(file_path, 'wb') as f:
+    tree.write(f, encoding='utf-8', xml_declaration=True)
