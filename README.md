@@ -1,0 +1,1 @@
+#  Predictive Analytics using R and Tableau: Use R to develop machine learning models and create predictions about future events or behaviors. Then use Tableau to visually represent the data and insights, such as creating dashboards, charts, and visualizations. This project may also involve deploying your models to Azure or AWS to run on a large-scale cloud environment.
